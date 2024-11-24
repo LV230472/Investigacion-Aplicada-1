@@ -4,49 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño Responsivo</title>
+    <title>Halloween y Gatos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body class="bg-gray-100 font-sans">
     <!-- Encabezado -->
-    <header class="bg-black text-white text-center py-4">
-        <h1 class="text-2xl font-bold">Encabezado</h1>
+    <header class="bg-gray-900 text-orange-400 text-center py-4">
+        <h1 class="text-3xl font-extrabold">🎃 Halloween y Gatos 🐾</h1>
     </header>
 
-    <main class="p-4">
+    <main class="p-6">
         <!-- Contenedor principal -->
-        <div class="grid gap-4 grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-6 grid-cols-2 lg:grid-cols-3">
             <!-- Bloques de texto -->
-            <div class="lg:col-span-1 space-y-4">
-                <div class="bg-purple-400 p-4 text-white text-center rounded shadow">
-                    <p>Bloque de texto 1</p>
+            <div class="lg:col-span-1 space-y-6">
+                <div class="p-5 text-white text-center rounded shadow 
+                            bg-orange-400 md:bg-purple-500 lg:bg-orange-400">
+                    <p>✨ ¡Gatos mágicos que iluminan la noche de Halloween! ✨</p>
                 </div>
-                <div class="bg-purple-400 p-4 text-white text-center rounded shadow">
-                    <p>Bloque de texto 2</p>
+                <div class="p-5 text-white text-center rounded shadow 
+                            bg-orange-400 md:bg-purple-500 lg:bg-orange-400">
+                    <p>🎃 Calabazas encantadas esperando tus hechizos. 🎃</p>
                 </div>
-                <div class="bg-purple-400 p-4 text-white text-center rounded shadow">
-                    <p>Bloque de texto 3</p>
+                <div class="p-5 text-white text-center rounded shadow 
+                            bg-orange-400 md:bg-purple-500 lg:bg-orange-400">
+                    <p>🌙 Una noche donde los misterios cobran vida. 🌙</p>
                 </div>
-                <div class="bg-purple-400 p-4 text-white text-center rounded shadow">
-                    <p>Bloque de texto 4</p>
+                <div class="p-5 text-white text-center rounded shadow 
+                            bg-orange-400 md:bg-purple-500 lg:bg-orange-400">
+                    <p>🕯️ ¿Truco o trato? ¡Gatos siempre eligen trato! 🕯️</p>
                 </div>
-                <div class="bg-purple-400 p-4 text-white text-center rounded shadow">
-                    <p>Bloque de texto 5</p>
+                <div class="p-5 text-white text-center rounded shadow 
+                            bg-orange-400 md:bg-purple-500 lg:bg-orange-400">
+                    <p>👻 Un rincón donde el miedo es tan dulce como un maullido. 👻</p>
                 </div>
             </div>
 
             <!-- Imágenes -->
-            <div class="rounded shadow bg-cover bg-center" style="background-image: url(images/imagen1.jpeg);"></div>
+            <div class="rounded shadow bg-cover bg-center 
+                        bg-[url('../images/imagen4.jpeg')] 
+                        md:bg-[url('../images/imagen3.jpeg')] 
+                        lg:bg-[url('../images/imagen1.jpeg')] min-h-[300px]">
+                <div
+                    class="h-full w-full flex items-end p-4 lg:p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
+                    <!-- Texto para diferentes resoluciones -->
+                    <p class="text-lg font-semibold hidden sm:block md:hidden">"Un paseo otoñal bajo la luna, con una
+                        calabaza que ilumina el camino"</p>
+                    <p class="text-lg font-semibold hidden md:block lg:hidden">"Brujitas felinas compartiendo hechizos y
+                        risas bajo la luz de las velas"</p>
+                    <p class="text-lg font-semibold hidden lg:block">"¡Gatos, calabazas y diversión asegurada!"</p>
+                </div>
 
-            <div class="rounded shadow bg-cover bg-center col-span-2 lg:col-span-1 block md:hidden lg:block min-h-60 lg:min-h-0" style="background-image: url(images/imagen2.jpeg);"></div>
+            </div>
+
+            <div class="rounded shadow bg-cover bg-center 
+                        bg-[url('../images/imagen2.jpeg')] 
+                        md:bg-[url('../images/imagen4.jpeg')] 
+                        lg:bg-[url('../images/imagen5.jpeg')] 
+                        col-span-2 lg:col-span-1 block md:hidden lg:block min-h-[300px]">
+                <div
+                    class="h-full w-full flex items-center justify-center text-white p-4 lg:p-8 bg-gradient-to-t from-black/70 to-transparent">
+                    <!-- Texto dinámico según resolución -->
+                    <p class="text-xl font-semibold hidden sm:block md:hidden">"Un pequeño guardián de calabazas listo
+                        para Halloween"</p>
+                    <p class="text-xl font-semibold hidden md:block lg:hidden">"Un paseo otoñal bajo la luna, con una
+                        calabaza que ilumina el camino"</p>
+                    <p class="text-xl font-semibold hidden lg:block">"Fantasmitas amistosos celebrando la dulzura de la
+                        temporada"</p>
+                </div>
+
+            </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-white text-center py-4">
-        <p>© 2024 Diseño Responsivo</p>
+    <footer class="bg-gray-900 text-orange-400 text-center py-6">
+        <p>© 2024 Gatos y Halloween - Maullidos bajo la luna llena. 🐾</p>
     </footer>
 </body>
 

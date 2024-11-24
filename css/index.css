@@ -1,8 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 .bg-black {
-    background-color: #494949 !important;
+    background-color: #323639 !important;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a855f7; /* Morado */
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e5e7eb; /* Gris claro */
 }
