@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 4000;
 
 // Simulación de una base de datos en memoria
 const users = [];
+const tokens = [];
 
 // **Endpoint para registrar usuarios**
 app.post('/api/register', async (req, res) => {
@@ -52,7 +53,8 @@ app.post('/api/login', async (req, res) => {
     }
 
     // Crear un token de autenticación
-    const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ username: user.username }, process.env.SECRET_KEY, { expiresIn: '1h' });
+    tokens.push(token);
 
     res.status(200).json({ message: 'Inicio de sesión exitoso', token });
 });
@@ -60,12 +62,16 @@ app.post('/api/login', async (req, res) => {
 // Middleware para autenticar el token
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
+    if(authHeader && authHeader.split(' ')[0] !== 'Bearer') return res.status(401).json({ message: 'Formato de token inválido' });
     const token = authHeader && authHeader.split(' ')[1];
     if (!token) return res.status(401).json({ message: 'Token no proporcionado' });
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(403).json({ message: 'Token inválido' });
+    jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+        if (err || tokens.indexOf(token) === -1) {
+            return res.status(403).json({ message: 'Token inválido' });
+        } 
         req.user = user;
+        req.token = token;
         next();
     });
 };
@@ -77,7 +83,7 @@ app.get('/api/protected-resource', authenticateToken, (req, res) => {
 
 // **Endpoint para cerrar sesión**
 app.post('/api/logout', authenticateToken, (req, res) => {
-    // Nota: La invalidación del token debe ser manejada en el cliente.
+    tokens.splice(tokens.indexOf(req.token), 1);
     res.status(200).json({ message: 'Cierre de sesión exitoso' });
 });
 
